@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/chop_2.wav-05f25f5569f0c4cf9a5b9508762d3862.sample"
+
+[deps]
+
+source_file="res://audio/chop_2.wav"
+dest_files=[ "res://.import/chop_2.wav-05f25f5569f0c4cf9a5b9508762d3862.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,701 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://font/Kenney Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI.gd" type="Script" id=2]
+[ext_resource path="res://audio/miss.wav" type="AudioStream" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "black_fade_out"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "menu_to_game"
+tracks/0/type = "value"
+tracks/0/path = NodePath("ColorRect2:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("ColorRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.551995 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "game_start"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("ColorRect2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+
+[sub_resource type="Animation" id=5]
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("MissIndicator/Miss2:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0159976, 0.0312148, 0.0460418, 0.0663314, 0.0834995, 0.0987167, 0.113934, 0.131102, 0.146709, 0.163877, 0.178704, 0.198994, 0.216162 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 155.548, -22.5645 ), Vector2( 160.353, -27.3699 ), Vector2( 140.597, -33.7771 ), Vector2( 128.851, -39.6504 ), Vector2( 172.633, -20.9626 ), Vector2( 147.539, -24.1662 ), Vector2( 164.091, -15.0893 ), Vector2( 140.597, -33.7771 ), Vector2( 128.851, -39.6504 ), Vector2( 172.633, -20.9626 ), Vector2( 140.597, -33.7771 ), Vector2( 128.851, -39.6504 ), Vector2( 172.633, -20.9626 ), Vector2( 147.539, -24.1662 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MissIndicator/Miss2:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0159976, 0.240744, 0.398214 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0509804, 0.847059, 0.67451, 1 ), Color( 0.0509804, 0.847059, 0.67451, 1 ), Color( 0.0509804, 0.847059, 0.67451, 1 ), Color( 0.0509804, 0.847059, 0.67451, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MissIndicator/Miss3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.0167779, 0.0312148, 0.0460418, 0.0663314, 0.0834995, 0.0987167, 0.113934, 0.131102, 0.146709, 0.163877, 0.178704, 0.198994, 0.216162 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 151.199, -30.0044 ), Vector2( 153.868, -34.2759 ), Vector2( 154.936, -26.8008 ), Vector2( 141.588, -49.2261 ), Vector2( 162.945, -27.3347 ), Vector2( 156.004, -19.3257 ), Vector2( 166.683, -18.7917 ), Vector2( 154.936, -26.8008 ), Vector2( 141.588, -49.2261 ), Vector2( 162.945, -27.3347 ), Vector2( 154.936, -26.8008 ), Vector2( 141.588, -49.2261 ), Vector2( 162.945, -27.3347 ), Vector2( 156.004, -19.3257 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MissIndicator/Miss3:custom_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.0167779, 0.0834995, 0.216162, 0.240744, 0.398214 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.835294, 0.352941, 0.937255, 1 ), Color( 0.835294, 0.352941, 0.937255, 0.627451 ), Color( 0.835294, 0.352941, 0.937255, 1 ), Color( 0.835294, 0.352941, 0.937255, 1 ), Color( 0.835294, 0.352941, 0.937255, 1 ), Color( 0.835294, 0.352941, 0.937255, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MissIndicator/Miss:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.0159976, 0.0312148, 0.0460418, 0.0663314, 0.0834995, 0.0987167, 0.113934, 0.131102, 0.146709, 0.163877, 0.178704, 0.198994, 0.216162 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 152.857, -23.9099 ), Vector2( 154.992, -22.842 ), Vector2( 149.653, -32.9868 ), Vector2( 133.101, -44.7334 ), Vector2( 167.273, -23.9099 ), Vector2( 160.332, -21.2403 ), Vector2( 160.332, -21.2403 ), Vector2( 149.653, -32.9868 ), Vector2( 133.101, -44.7334 ), Vector2( 167.273, -23.9099 ), Vector2( 149.653, -32.9868 ), Vector2( 133.101, -44.7334 ), Vector2( 167.273, -23.9099 ), Vector2( 160.332, -21.2403 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("MissIndicator/Miss:custom_colors/font_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.240744, 0.398214 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.847059, 0.121569, 0.0509804, 1 ), Color( 0.847059, 0.121569, 0.0509804, 1 ), Color( 0.847059, 0.121569, 0.0509804, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("MissIndicator:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.392916, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, true, false ]
+}
+
+[sub_resource type="Animation" id=6]
+length = 0.32
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/BreadSlices:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.103154, 0.199428 ),
+"transitions": PoolRealArray( 1, 0.0915054, 10.5561 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/BreadSlices:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.103154, 0.201141 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/BreadSlices:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.189328, 0.208889, 0.229753, 0.251921, 0.271481, 0.292345, 0.311906 ),
+"transitions": PoolRealArray( 1, 1, 4.5948, 4.28709, 1, 4.5948, 4.28709, 0.0947323 ),
+"update": 0,
+"values": [ 0.0, 0.0, 10.0, -10.0, 0.0, 10.0, -10.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/SlicesText:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.00122589, 0.0220661, 0.0416804, 0.0649724, 0.0870385, 0.106653, 0.131171, 0.152011, 0.171625, 0.194917, 0.216983, 0.236598, 0.25376, 0.313829 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.368149, 16.0007 ), Vector2( 0.368149, 16.0007 ), Vector2( -10.8862, 18.4986 ), Vector2( 5.9369, 18.6584 ), Vector2( 0.738327, 21.9825 ), Vector2( -10.8862, 18.4986 ), Vector2( -2.62846, 25.7937 ), Vector2( 0.368149, 16.0007 ), Vector2( -10.8862, 18.4986 ), Vector2( 5.9369, 18.6584 ), Vector2( 0.738327, 21.9825 ), Vector2( -10.8862, 18.4986 ), Vector2( -2.62846, 25.7937 ), Vector2( 0.368149, 16.0007 ), Vector2( 0.368149, 16.0007 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Control/SlicesText:custom_colors/font_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/BreadSlices:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0948347, 0.0980716 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.451883 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/SlicesText:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0948347 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+
+[sub_resource type="Animation" id=9]
+length = 0.75
+tracks/0/type = "value"
+tracks/0/path = NodePath("MissIndicator/Miss2:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0159976, 0.0312148, 0.0460418, 0.0663314, 0.0834995, 0.0987167, 0.113934, 0.131102, 0.146709, 0.163877, 0.178704, 0.198994, 0.216162, 0.236576, 0.251793, 0.26662, 0.28691, 0.304078, 0.319295, 0.334512, 0.35168, 0.367287, 0.384455, 0.399282, 0.419572 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 155.548, -22.5645 ), Vector2( 160.353, -27.3699 ), Vector2( 140.597, -33.7771 ), Vector2( 128.851, -39.6504 ), Vector2( 172.633, -20.9626 ), Vector2( 147.539, -24.1662 ), Vector2( 164.091, -15.0893 ), Vector2( 140.597, -33.7771 ), Vector2( 128.851, -39.6504 ), Vector2( 172.633, -20.9626 ), Vector2( 140.597, -33.7771 ), Vector2( 128.851, -39.6504 ), Vector2( 172.633, -20.9626 ), Vector2( 147.539, -24.1662 ), Vector2( 160.353, -27.3699 ), Vector2( 140.597, -33.7771 ), Vector2( 128.851, -39.6504 ), Vector2( 172.633, -20.9626 ), Vector2( 147.539, -24.1662 ), Vector2( 164.091, -15.0893 ), Vector2( 140.597, -33.7771 ), Vector2( 128.851, -39.6504 ), Vector2( 172.633, -20.9626 ), Vector2( 140.597, -33.7771 ), Vector2( 128.851, -39.6504 ), Vector2( 172.633, -20.9626 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("MissIndicator/Miss2:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0159976, 0.236576, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0509804, 0.847059, 0.67451, 1 ), Color( 0.0509804, 0.847059, 0.67451, 1 ), Color( 0.0509804, 0.847059, 0.67451, 1 ), Color( 0.0509804, 0.847059, 0.67451, 1 ), Color( 0.0509804, 0.847059, 0.67451, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("MissIndicator/Miss3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.0167779, 0.0312148, 0.0460418, 0.0663314, 0.0834995, 0.0987167, 0.113934, 0.131102, 0.146709, 0.163877, 0.178704, 0.198994, 0.216162, 0.237356, 0.251793, 0.26662, 0.28691, 0.304078, 0.319295, 0.334512, 0.35168, 0.367287, 0.384455, 0.399282, 0.419572 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 151.199, -30.0044 ), Vector2( 153.868, -34.2759 ), Vector2( 154.936, -26.8008 ), Vector2( 141.588, -49.2261 ), Vector2( 162.945, -27.3347 ), Vector2( 156.004, -19.3257 ), Vector2( 166.683, -18.7917 ), Vector2( 154.936, -26.8008 ), Vector2( 141.588, -49.2261 ), Vector2( 162.945, -27.3347 ), Vector2( 154.936, -26.8008 ), Vector2( 141.588, -49.2261 ), Vector2( 162.945, -27.3347 ), Vector2( 156.004, -19.3257 ), Vector2( 153.868, -34.2759 ), Vector2( 154.936, -26.8008 ), Vector2( 141.588, -49.2261 ), Vector2( 162.945, -27.3347 ), Vector2( 156.004, -19.3257 ), Vector2( 166.683, -18.7917 ), Vector2( 154.936, -26.8008 ), Vector2( 141.588, -49.2261 ), Vector2( 162.945, -27.3347 ), Vector2( 154.936, -26.8008 ), Vector2( 141.588, -49.2261 ), Vector2( 162.945, -27.3347 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("MissIndicator/Miss3:custom_colors/font_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.0167779, 0.0834995, 0.216162, 0.237356, 0.304078, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.835294, 0.352941, 0.937255, 1 ), Color( 0.835294, 0.352941, 0.937255, 0.627451 ), Color( 0.835294, 0.352941, 0.937255, 1 ), Color( 0.835294, 0.352941, 0.937255, 1 ), Color( 0.835294, 0.352941, 0.937255, 0.627451 ), Color( 0.835294, 0.352941, 0.937255, 1 ), Color( 0.835294, 0.352941, 0.937255, 1 ), Color( 0.835294, 0.352941, 0.937255, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("MissIndicator/Miss:rect_position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.0159976, 0.0312148, 0.0460418, 0.0663314, 0.0834995, 0.0987167, 0.113934, 0.131102, 0.146709, 0.163877, 0.178704, 0.198994, 0.216162, 0.236576, 0.251793, 0.26662, 0.28691, 0.304078, 0.319295, 0.334512, 0.35168, 0.367287, 0.384455, 0.399282, 0.419572 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 152.857, -23.9099 ), Vector2( 154.992, -22.842 ), Vector2( 149.653, -32.9868 ), Vector2( 133.101, -44.7334 ), Vector2( 167.273, -23.9099 ), Vector2( 160.332, -21.2403 ), Vector2( 160.332, -21.2403 ), Vector2( 149.653, -32.9868 ), Vector2( 133.101, -44.7334 ), Vector2( 167.273, -23.9099 ), Vector2( 149.653, -32.9868 ), Vector2( 133.101, -44.7334 ), Vector2( 167.273, -23.9099 ), Vector2( 160.332, -21.2403 ), Vector2( 154.992, -22.842 ), Vector2( 149.653, -32.9868 ), Vector2( 133.101, -44.7334 ), Vector2( 167.273, -23.9099 ), Vector2( 160.332, -21.2403 ), Vector2( 160.332, -21.2403 ), Vector2( 149.653, -32.9868 ), Vector2( 133.101, -44.7334 ), Vector2( 167.273, -23.9099 ), Vector2( 149.653, -32.9868 ), Vector2( 133.101, -44.7334 ), Vector2( 167.273, -23.9099 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("MissIndicator/Miss:custom_colors/font_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0.847059, 0.121569, 0.0509804, 1 ), Color( 0.847059, 0.121569, 0.0509804, 1 ), Color( 0.847059, 0.121569, 0.0509804, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("MissIndicator:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.32
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/BreadSlices:rect_scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.103154, 0.199428 ),
+"transitions": PoolRealArray( 1, 0.0915054, 10.5561 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/BreadSlices:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.103154, 0.201141 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.392157 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Control/BreadSlices:rect_rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.189328, 0.208889, 0.229753, 0.251921, 0.271481, 0.292345, 0.311906 ),
+"transitions": PoolRealArray( 1, 1, 4.5948, 4.28709, 1, 4.5948, 4.28709, 0.0947323 ),
+"update": 0,
+"values": [ 0.0, 0.0, 10.0, -10.0, 0.0, 10.0, -10.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Control/SlicesText:rect_position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.00122589, 0.0220661, 0.0416804, 0.0649724, 0.0870385, 0.106653, 0.131171, 0.152011, 0.171625, 0.194917, 0.216983, 0.236598, 0.25376, 0.313829 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.368149, 16.0007 ), Vector2( 0.368149, 16.0007 ), Vector2( -10.8862, 18.4986 ), Vector2( 5.9369, 18.6584 ), Vector2( 0.738327, 21.9825 ), Vector2( -10.8862, 18.4986 ), Vector2( -2.62846, 25.7937 ), Vector2( 0.368149, 16.0007 ), Vector2( -10.8862, 18.4986 ), Vector2( 5.9369, 18.6584 ), Vector2( 0.738327, 21.9825 ), Vector2( -10.8862, 18.4986 ), Vector2( -2.62846, 25.7937 ), Vector2( 0.368149, 16.0007 ), Vector2( 0.368149, 16.0007 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Control/SlicesText:custom_colors/font_color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Control/BreadSlices:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.0948347, 0.0980716 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.451883 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Control/SlicesText:custom_colors/font_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.0948347 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=12]
+size = 40
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 50
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=14]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 40
+font_data = ExtResource( 1 )
+
+[node name="UI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -0.847565
+margin_bottom = -0.847534
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ComboCount" type="Label" parent="."]
+visible = false
+margin_left = 13.8618
+margin_top = 13.5924
+margin_right = 67.8618
+margin_bottom = 56.5924
+rect_pivot_offset = Vector2( 24.8363, 22.3182 )
+custom_fonts/font = SubResource( 1 )
+text = "5 x"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/black_fade_out = SubResource( 2 )
+anims/menu_to_game = SubResource( 3 )
+anims/show_combo = SubResource( 4 )
+anims/show_miss = SubResource( 5 )
+anims/slice_change = SubResource( 6 )
+anims/slice_fade = SubResource( 7 )
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+anims/show_combo = SubResource( 8 )
+anims/show_miss = SubResource( 9 )
+anims/slice_change = SubResource( 10 )
+anims/slice_fade = SubResource( 11 )
+
+[node name="Control" type="Control" parent="."]
+anchor_left = 0.496
+anchor_top = 0.427
+anchor_right = 0.496
+anchor_bottom = 0.427
+margin_left = -281.197
+margin_top = -155.826
+margin_right = -81.1968
+margin_bottom = -105.826
+rect_rotation = -65.0
+rect_scale = Vector2( 1.5, 1.5 )
+rect_pivot_offset = Vector2( 101.907, 24.7893 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BreadSlices" type="Label" parent="Control"]
+anchor_left = 0.555
+anchor_top = -0.099
+anchor_right = 0.555
+anchor_bottom = -0.099
+margin_left = -30.4095
+margin_top = -31.4511
+margin_right = 19.5905
+margin_bottom = 28.5489
+rect_rotation = -9.82084
+rect_pivot_offset = Vector2( 27.544, 25.9778 )
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "5 "
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SlicesText" type="Label" parent="Control"]
+anchor_left = 0.555
+anchor_top = -0.099
+anchor_right = 0.555
+anchor_bottom = -0.099
+margin_left = -110.632
+margin_top = 20.9507
+margin_right = 109.368
+margin_bottom = 80.9508
+rect_pivot_offset = Vector2( 27.544, 25.9778 )
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "Slices"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MissIndicator" type="Control" parent="."]
+anchor_left = 0.501
+anchor_top = 0.446
+anchor_right = 0.501
+anchor_bottom = 0.446
+margin_left = -251.746
+margin_top = -0.141266
+margin_right = 252.254
+margin_bottom = 112.859
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Miss2" type="Label" parent="MissIndicator"]
+anchor_left = 0.5
+anchor_top = -0.021
+anchor_right = 0.5
+margin_left = -79.367
+margin_top = -18.5896
+margin_right = 140.633
+margin_bottom = 39.0387
+rect_pivot_offset = Vector2( 108.399, 22.6815 )
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0.0509804, 0.847059, 0.67451, 0 )
+text = "MISS !!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Miss3" type="Label" parent="MissIndicator"]
+anchor_left = 0.5
+anchor_top = -0.021
+anchor_right = 0.5
+anchor_bottom = -0.021
+margin_left = -89.055
+margin_top = -24.9617
+margin_right = 130.944
+margin_bottom = 35.0387
+rect_pivot_offset = Vector2( 108.399, 22.6815 )
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0.835294, 0.352941, 0.937255, 0 )
+text = "MISS !!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Miss" type="Label" parent="MissIndicator"]
+anchor_left = 0.5
+anchor_top = -0.021
+anchor_right = 0.5
+anchor_bottom = -0.021
+margin_left = -84.727
+margin_top = -21.5369
+margin_right = 135.276
+margin_bottom = 38.465
+rect_pivot_offset = Vector2( 108.399, 22.6815 )
+custom_fonts/font = SubResource( 12 )
+custom_colors/font_color = Color( 0.847059, 0.121569, 0.0509804, 0 )
+text = "MISS !!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -6.10352e-05
+color = Color( 0.921569, 1, 0.643137, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Heading" type="Label" parent="ColorRect"]
+modulate = Color( 0.788235, 0.305882, 0.0784314, 1 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -336.258
+margin_top = 50.7384
+margin_right = 338.742
+margin_bottom = 140.738
+rect_pivot_offset = Vector2( 39.467, 5.3046 )
+custom_fonts/font = SubResource( 13 )
+custom_constants/shadow_offset_x = 2
+custom_constants/shadow_offset_y = 2
+text = "Bread Cutter"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ToDo" type="Label" parent="ColorRect"]
+modulate = Color( 0, 0, 0, 0.670588 )
+anchor_left = 0.5
+anchor_top = 0.854
+anchor_right = 0.5
+anchor_bottom = 0.854
+margin_left = -141.037
+margin_top = -41.907
+margin_right = 149.963
+margin_bottom = 42.093
+custom_fonts/font = SubResource( 14 )
+text = "tap to slice"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -101.094
+margin_top = -93.1544
+margin_right = 98.9062
+margin_bottom = -33.1544
+custom_fonts/font = SubResource( 15 )
+text = "Score"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Value" type="Label" parent="ColorRect/Score"]
+anchor_left = -1.083
+anchor_top = 1.0
+anchor_right = 2.081
+anchor_bottom = 2.033
+margin_top = 24.0
+margin_right = 3.05176e-05
+margin_bottom = 24.02
+grow_horizontal = 2
+grow_vertical = 0
+rect_pivot_offset = Vector2( 207.116, 20.7982 )
+custom_fonts/font = SubResource( 15 )
+text = "0"
+align = 1
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MissSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
